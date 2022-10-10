@@ -1,0 +1,107 @@
+windowManager:
+	InicioSesion:
+	Registro:
+
+<InicioSesion>:
+	nombre_usuario : nombre_usuario
+    contrasena : contrasena
+    FloatLayout:
+        size: root.width, root.height
+        Label:
+            text : "Nombre usuario: "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x":0.25, "top":0.9}
+        TextInput:
+            id : nombre_usuario
+            multiline :False
+            hint_text: 'Ingrese nombre de usuario'
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.9}
+        Label:
+            text : "Contraseña: "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.7}
+        TextInput:
+            id : contrasena
+            multiline :False
+            hint_text: 'Ingrese contraseña'
+            password: True
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.7}
+        Button:
+            id: btn_psw
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": .7, "top": 0.7}
+            text: 'Ver'
+            on_press: root.mostrar_ocultar()
+        Button:
+            text : "Registrarse"
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.2}
+            on_release: 
+                app.root.current = 'Registro'
+                root.manager.transition.direction = "left"
+        Button:
+            text : "Ingresar"
+            size_hint : 0.4, 0.1
+            pos_hint : {"x" : 0.33, "top" : 0.4}
+            on_press: 
+                root.iniciar_sesion()
+                root.manager.transition.direction = "left"
+
+<Registro>:
+    nombre_usuario : nombre_usuario
+    email : email
+    contrasena : contrasena
+	FloatLayout:
+        Label:
+            text : "Nombre usuario: "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x":0.25, "top":0.9}
+        TextInput:
+            id : nombre_usuario
+            multiline : False
+            hint_text: 'Ingrese nombre de usuario'
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.9}
+        Label:
+            text : "Correo electronico: "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.7}
+        TextInput:
+            id : email
+            multiline : False
+            hint_text: 'Ingrese correo electronico'
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.7}
+        Label:
+            text : "Contraseña: "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.5}
+        TextInput:
+            id : contrasena
+            multiline : False
+            hint_text: 'Ingrese contraseña'
+            password: True
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.5}
+        Button:
+            id: btn_psw
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": 0.7, "top": 0.5}
+            text: 'Ver'
+            on_press: root.mostrar_ocultar()
+        Button:
+            text : "Registrarme"
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.28}
+            on_press :
+                root.registro()
+                root.manager.transition.direction = "right"
+        Button:
+            text : "Regresar Login"
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.17}
+            on_release: 
+                app.root.current = 'InicioSesion'
+                root.manager.transition.direction = "right"

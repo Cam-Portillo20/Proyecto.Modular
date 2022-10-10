@@ -1,0 +1,57 @@
+windowManager:
+	Reportes:
+
+
+<Reportes>:
+    tipo_incidente : tipo_incidente
+    ubicacion : ubicacion
+    muertes : muertes
+    lesion : lesion
+	FloatLayout:
+        Label:
+            text : "Tipo incidente: "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x":0.25, "top":0.9}
+        TextInput:
+            id : tipo_incidente
+            multiline : False
+            hint_text: 'Selecciona el tipo de incidente'
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.9}
+        Label:
+            text : "Seleccione la ubicación: "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.7}
+        TextInput:
+            id : ubicacion
+            multiline : False
+            hint_text: 'Ubicación'
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.7}
+        Label:
+            text : "Hubo personas lesionadas? "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.23, "top" : 0.5}
+        TextInput:
+            id : lesion
+            multiline : False
+            hint_text : 'Si o no'
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.5}
+        Label:
+            text : "Hubo personas fallecidas?: "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.22, "top" : 0.3}
+        TextInput:
+            id : muertes
+            multiline : False
+            hint_text: 'Si o no'
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.3}
+        Button:
+            text : "Enviar reporte"
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.18}
+            on_press :
+                root.registroIncidente()
+                root.manager.transition.direction = "right"

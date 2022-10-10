@@ -1,0 +1,65 @@
+windowManager:
+	Reportes:
+
+<Reportes>:
+    tipo_incidente : tipo_incidente
+    muertes : muertes
+    lesionados: lesionados
+    ubicacion_calle : ubicacion_calle
+    ubicacion_codigo_postal : ubicacion_codigo_postal
+    ubicacion_numero : ubicacion_numero
+	BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        Label:
+            text: "Registro de incidente"
+            font_size: 20
+        GridLayout:
+            cols: 2
+            Label:
+                text: "Seleccione tipo de incidente: "
+            Spinner:
+                id : tipo_incidente
+                text : "Robo"
+                values: ["Robo","Asalto","Secuestro","Acoso","Pelea callejera","Atropellamiento","Asesinato","Otro"]
+            Label:
+                text: "¿Hubo muertos?"
+            Spinner:
+                id : muertes
+                text: "No"
+                values: ["Sí","No"]
+            Label:
+                text: "¿Hubo lesionados?"
+            Spinner:
+                id : lesionados
+                text: "No"
+                values: ["Sí","No"]
+            Label:
+                text : "Escribe la calle: "
+            TextInput:
+                id : ubicacion_calle
+                multiline : False
+                hint_text: 'Calle'
+            Label:
+                text : "Escribe el código postal: "
+            TextInput:
+                id : ubicacion_codigo_postal
+                multiline : False
+                hint_text: 'Código postal'
+            Label:
+                text : "Escribe el número (opcional): "
+            TextInput:
+                id : ubicacion_numero
+                multiline : False
+                hint_text: 'Número'
+        Button:
+            text : "Enviar reporte"
+            size_hint : 0.2, 0.3
+            pos_hint : {"x" : 0.4, "top" : 0.5}
+            on_press :
+                root.registrar_reporte()
+                #root.manager.transition.direction = "right"
+        Label:
+            id: outup_label
+            text: ""
+            font_size: 32
